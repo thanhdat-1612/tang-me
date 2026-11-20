@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chúc mừng sinh nhật Mẹ ❤️</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; overflow-x: hidden;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    color: #713b48;
+    background: linear-gradient(135deg, #fff0f3, #ffe3ec 48%, #fff5df);
+    display: grid; place-items: center; padding: 28px 16px;
+  }
+  .glow { position: fixed; width: 280px; height: 280px; border-radius: 50%;
+    background: #fff; filter: blur(75px); opacity: .55; pointer-events: none; }
+  .g1 { top: -90px; left: -70px; } .g2 { right: -90px; bottom: -90px; }
+  .card {
+    position: relative; width: min(720px, 100%); text-align: center;
+    padding: clamp(28px, 6vw, 58px) clamp(20px, 6vw, 58px);
+    background: rgba(255,255,255,.78); border: 1px solid rgba(255,255,255,.9);
+    border-radius: 30px; box-shadow: 0 24px 70px rgba(160, 75, 100, .16);
+    backdrop-filter: blur(12px); animation: appear 1s ease both;
+  }
+  @keyframes appear { from {opacity:0; transform:translateY(18px)} to {opacity:1; transform:none} }
+  .badge { display:inline-block; padding:8px 16px; border-radius:30px;
+    background:#fff0f3; color:#c45b78; font-size:13px; letter-spacing:2px; font-weight:700; }
+  .flower { font-size: clamp(42px, 8vw, 64px); margin: 18px 0 4px; }
+  h1 { margin: 8px 0 12px; color:#c34f70; font-family: Georgia, serif;
+    font-size: clamp(38px, 8vw, 64px); line-height:1.08; }
+  .subtitle { font-size: clamp(17px, 3vw, 20px); color:#9a6370; margin:0 0 28px; }
+  .divider { width:90px; height:3px; background:#f3a7ba; margin:25px auto; border-radius:9px; }
+  .message { max-width:540px; margin:auto; font-size:17px; line-height:1.9; color:#76515b; }
+  .message strong { color:#bd5470; }
+  .signature { margin-top:26px; font-family:"Segoe UI", Arial, sans-serif; font-size:23px; font-weight:700; color:#c34f70; font-style:normal; }
+  button { margin-top:28px; border:0; border-radius:30px; padding:14px 24px;
+    color:white; background:linear-gradient(100deg,#e77e9b,#c85d7c); font-size:16px;
+    font-weight:700; cursor:pointer; box-shadow:0 8px 20px #df8da44a; transition:.2s; }
+  button:hover { transform:translateY(-2px); box-shadow:0 12px 24px #df8da466; }
+  #surprise { display:none; margin:22px auto 0; padding:18px; max-width:480px;
+    border-radius:18px; background:#fff5f7; line-height:1.8; animation:appear .5s ease both; }
+  .heart { position:fixed; bottom:-40px; font-size:20px; opacity:.65;
+    animation: floatUp 8s linear infinite; pointer-events:none; }
+  @keyframes floatUp { to { transform:translateY(-110vh) rotate(25deg); opacity:0; } }
+  footer { margin-top:30px; font-size:12px; color:#bd8995; }
+</style>
+</head>
+<body>
+<div class="glow g1"></div><div class="glow g2"></div>
+<main class="card">
+  <div class="badge">A SPECIAL DAY FOR SOMEONE SPECIAL</div>
+  <div class="flower">💐</div>
+  <h1>Chúc mừng<br>sinh nhật Mẹ!</h1>
+  <p class="subtitle">Ngày đặc biệt dành cho người phụ nữ tuyệt vời nhất ❤️</p>
+  <div class="divider"></div>
+  <section class="message">
+    <p>Mẹ yêu quý!</p>
+    <p>Nhân ngày sinh nhật mẹ, con chúc mẹ luôn <strong>mạnh khỏe, bình an và thật nhiều niềm vui</strong>.
+    Mong mỗi ngày của mẹ đều ngập tràn tiếng cười, những điều may mắn và những khoảnh khắc hạnh phúc.</p>
+    <p>Cảm ơn mẹ vì đã luôn yêu thương, chăm sóc và dành cho con những điều tốt đẹp nhất.
+    Con có thể không nói ra thường xuyên, nhưng con luôn biết ơn và yêu mẹ rất nhiều.</p>
+    <p>Chúc mẹ có một sinh nhật thật ấm áp và đáng nhớ. ❤️</p>
+  </section>
+  <div class="signature">Con yêu Mẹ nhiều lắm!</div>
+  <button id="surpriseBtn" type="button">💝 Nhấn vào đây nhé, Mẹ!</button>
+  <div id="surprise">🌷 Món quà lớn nhất con mong muốn là mẹ luôn khỏe mạnh, vui vẻ và ở bên gia đình thật lâu. <br><strong>Con thương Mẹ!</strong> 💗</div>
+  <footer>Made with love · Dành tặng Mẹ</footer>
+</main>
+<script>
+  const btn = document.getElementById('surpriseBtn');
+  const surprise = document.getElementById('surprise');
+  btn.addEventListener('click', () => {
+    surprise.style.display = 'block';
+    btn.textContent = '💗 Con yêu Mẹ!';
+    for (let i=0; i<18; i++) {
+      const el = document.createElement('span');
+      el.className = 'heart';
+      el.textContent = ['💗','💕','🌸','✨'][Math.floor(Math.random()*4)];
+      el.style.left = Math.random()*100 + 'vw';
+      el.style.animationDelay = Math.random()*2 + 's';
+      el.style.fontSize = (16 + Math.random()*18) + 'px';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 8500);
+    }
+  });
+</script>
+</body>
+</html>
